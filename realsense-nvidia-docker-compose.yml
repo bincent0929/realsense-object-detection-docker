@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  yolo-realsense:
+    build: .
+    runtime: nvidia
+    ipc: host
+    privileged: true
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    volumes:
+      - ./:/app
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
